@@ -1,45 +1,44 @@
 #include <iostream>
 #include <string>
-#include <limits>
 #include <fstream>
 #include <vector>
 #include "funkcje.h"
+
 using namespace std;
 
-int sprawdzArgumenty(int argc, char* argv[], string& nazwaPlikuWejsciowego, string& nazwaPlikuWyjsciowego, string& miastoStartowe) {
-	int ok = 0;
+bool sprawdzArgumenty(int argc, char* argv[], string &nazwaPlikuWejsciowego, string &nazwaPlikuWyjsciowego, string &miastoStartowe) {
+
+	int zlicz = 0;
+
 	if (argc <= 7) {
+
 		for (int i = 1; i < argc; i++)
 		{
-			if (string(argv[i]) == string("-i"))
-			{
+			if (string(argv[i]) == string("-i")){
+
 				nazwaPlikuWejsciowego = string(argv[i + 1]);
-				ok++;
+				zlicz++;
 			}
-			if (string(argv[i]) == string("-o"))
-			{
+
+			if (string(argv[i]) == string("-o")){
+
 				nazwaPlikuWyjsciowego = string(argv[i + 1]);
-				ok++;
+				zlicz++;
 			}
-			if (string(argv[i]) == string("-s"))
-			{
+
+			if (string(argv[i]) == string("-s")){
+
 				miastoStartowe = string(argv[i + 1]);
-				ok++;
+				zlicz++;
 			}
 		}
-		if (ok == 3)
-		{
-			return 1;
-		}
-		else
-		{
-			return 0;
-		}
+
+		if (zlicz == 3) return true;
+
+		else return false;
 	}
-	else
-	{
-		return 0;
-	}
+
+	else return false;
 }
 
 void pomoc() {
@@ -49,46 +48,37 @@ void pomoc() {
 	cout << "-s nazwa miasta startowego, centrali" << endl;
 }
 
-void wczytajGraf(string nazwaPliku, sasiad**& graf, int rozmiar, vector<string> wektorNazwMiast) {
-
-	sasiad* nowySasiad;
-	int numerMiasta1, numerMiasta2, odleglosc;
-	string miasto1, miasto2;
+vector<string> stworzVectorMiast(string nazwaPliku, string nazwaCentrali){
 
 	ifstream plik;
-	plik.open(nazwaPliku, ios::in);
-	if (plik.fail()) cout << "Input file error1!" << endl; //sprawdzenie poprawnosci wczytania pliku + komunikat
+	plik.open("C:/Users/wybieracz/Documents/POLSL/PPK/20_Spedycja_Dijkstra/20_Spedycja_Dijkstra/" + nazwaPliku, ios ::in);
 
-	for (int i = 0; i < rozmiar; i++) {
-		graf[i] = nullptr;
+	if (plik.fail()) {
+		std::cout << "Input file error!" << endl;
 	}
 
-	while (true) //pêtla nieskoñczona
-	{
-		plik >> miasto1 >> miasto2 >> odleglosc;	// Odczytujemy krawêdŸ z wag¹
+	vector<string> vektorNazwMiast;
+	string miasto1, miasto2;
+	int odleglosc;
 
-		numerMiasta1 = znajdzNumer(wektorNazwMiast, miasto1);
-		numerMiasta2 = znajdzNumer(wektorNazwMiast, miasto2);
+	vektorNazwMiast.push_back(nazwaCentrali);
+
+	while (true)
+	{
+		plik >> miasto1 >> miasto2 >> odleglosc;
 
 		if (not plik.fail()) {
 
-			nowySasiad = new sasiad;             // Tworzymy element listy s¹siedztwa
-			nowySasiad->numerSasiada = numerMiasta2;                    // Wierzcho³ek docelowy krawêdzi
-			nowySasiad->koszt = odleglosc;                    // Waga krawêdzi
-			nowySasiad->next = graf[numerMiasta1];
-			graf[numerMiasta1] = nowySasiad;                 // Element do³¹czamy do listy
-			
-			nowySasiad = new sasiad;
-			nowySasiad->numerSasiada = numerMiasta1;
-			nowySasiad->koszt = odleglosc;
-			nowySasiad->next = graf[numerMiasta2];
-			graf[numerMiasta2] = nowySasiad;
+			if (not znajdzDuplikat(vektorNazwMiast, miasto1)) vektorNazwMiast.push_back(miasto1);
+			if (not znajdzDuplikat(vektorNazwMiast, miasto2)) vektorNazwMiast.push_back(miasto2);
 		}
 
 		else break;
-
 	}
+
 	plik.close();
+
+	return vektorNazwMiast;
 }
 
 bool znajdzDuplikat(vector<string> wektorNazwMiast, string szukana) {
@@ -113,51 +103,60 @@ int znajdzNumer(vector<string> wektorNazwMiast, string szukana) {
 	return -1;
 }
 
-void stworzListeMiast(miasto*& miastoGlowa, int iloscMiast) {
+void wczytajGraf(string nazwaPliku, sasiad** &graf, vector<string> vektorNazwMiast) {
+
+	sasiad* nowySasiad;
+	int numerMiasta1, numerMiasta2, odleglosc, rozmiar = vektorNazwMiast.size();
+	string miasto1, miasto2;
+
+	ifstream plik;
+	plik.open(nazwaPliku, ios::in);
+
+	if (plik.fail())
+		cout << "Input file error1!" << endl;
+
+	for (int i = 0; i < rozmiar; i++) {
+		graf[i] = nullptr;
+	}
+
+	while (true)
+	{
+		plik >> miasto1 >> miasto2 >> odleglosc;
+
+		numerMiasta1 = znajdzNumer(vektorNazwMiast, miasto1);
+		numerMiasta2 = znajdzNumer(vektorNazwMiast, miasto2);
+
+		if (not plik.fail()) {
+
+			nowySasiad = new sasiad{ graf[numerMiasta1], numerMiasta2, odleglosc };
+			graf[numerMiasta1] = nowySasiad;
+
+			nowySasiad = new sasiad{ graf[numerMiasta2], numerMiasta1, odleglosc };
+			graf[numerMiasta2] = nowySasiad;
+		}
+
+		else break;
+	}
+
+	plik.close();
+}
+
+void stworzListeMiast(miasto* &miastoGlowa, int iloscMiast) {
 
 	const int niesk = 2147483647;
 	miasto* noweMiasto = nullptr;
 
-	for (int i = iloscMiast-1; i >= 0; i--) {
+	for (int i = iloscMiast - 1; i >= 0; i--) {
 
-		noweMiasto = new miasto{ miastoGlowa, i, niesk, -1};
+		noweMiasto = new miasto{ miastoGlowa, i, niesk, -1 };
 		miastoGlowa = noweMiasto;
 	}
 
 	miastoGlowa->koszt = 0;
 }
 
-void wypiszMiasto(miasto* miastoGlowa) {
-
-	if (miastoGlowa) {
-		cout << miastoGlowa->numerMiasta << ". " << "Koszt: " << miastoGlowa->koszt << " Poprzednik: " << miastoGlowa->poprzednik << endl;
-		wypiszMiasto(miastoGlowa->next);
-	}
-}
-
-void sortuj(miasto*& pierwszeQ, miasto* &miastoSortuj, miasto*& prev) {
-
-	miasto* miastoGlowa = pierwszeQ;
-
-	while (miastoGlowa) {
-
-		if (miastoGlowa->next && miastoGlowa->next->koszt >= miastoSortuj->koszt) {
-
-			if (miastoGlowa != miastoSortuj) break;
-
-			prev->next = miastoSortuj->next;
-			miastoSortuj->next = miastoGlowa->next;
-			miastoGlowa->next = miastoSortuj;
-
-			break;
-		}
-
-		miastoGlowa = miastoGlowa->next;
-	}
-}
-
 void dijkstra(miasto*& miastoGlowa, sasiad** graf) {
-	
+
 	miasto* pierwszeQ = miastoGlowa;
 	miasto* helpM = nullptr;
 	miasto* prevM = nullptr;
@@ -172,9 +171,8 @@ void dijkstra(miasto*& miastoGlowa, sasiad** graf) {
 
 			while (helpM) {
 
-				if (helpM->numerMiasta == helpS->numerSasiada) {
+				if (helpM->numerMiasta == helpS->numerSasiada)
 					break;
-				}
 
 				prevM = helpM;
 				helpM = helpM->next;
@@ -187,18 +185,154 @@ void dijkstra(miasto*& miastoGlowa, sasiad** graf) {
 					helpM->koszt = helpS->koszt + pierwszeQ->koszt;
 					helpM->poprzednik = pierwszeQ->numerMiasta;
 				}
-				cout << endl;
-				wypiszMiasto(miastoGlowa);
+
 				sortuj(pierwszeQ, helpM, prevM);
-				cout << endl;
-				wypiszMiasto(miastoGlowa);
-				helpM = pierwszeQ;
 			}
 
+			helpM = pierwszeQ;
 			helpS = helpS->next;
 		}
+
 		pierwszeQ = pierwszeQ->next;
-		
+
 	} while (pierwszeQ);
 
+}
+
+void sortuj(miasto* &pierwszeQ, miasto* &miastoSortuj, miasto* &prev) {
+
+	miasto* miastoGlowa = pierwszeQ;
+
+	while (miastoGlowa) {
+
+		if (miastoGlowa->next && miastoGlowa->next->koszt >= miastoSortuj->koszt) {
+
+			if (miastoGlowa == miastoSortuj) break;
+
+			prev->next = miastoSortuj->next;
+			miastoSortuj->next = miastoGlowa->next;
+			miastoGlowa->next = miastoSortuj;
+
+			break;
+		}
+
+		miastoGlowa = miastoGlowa->next;
+	}
+}
+
+void przepiszListe(miasto* miastoGlowa, int* kosztDojscia, int* poprzednicy) {
+
+	while (miastoGlowa)
+	{
+		kosztDojscia[miastoGlowa->numerMiasta] = miastoGlowa->koszt;
+		poprzednicy[miastoGlowa->numerMiasta] = miastoGlowa->poprzednik;
+		miastoGlowa = miastoGlowa->next;
+	}
+}
+
+void wypiszTrasy(int* kosztDojscia, int* poprzednicy, int rozmiar, vector<string> vectorNazwMiast, string nazwaPliku) {
+
+	int* stos = new int[rozmiar];
+	int wskaznikStosu = 0;
+
+	ofstream plik;
+	plik.open(nazwaPliku, ios::out);
+
+	for (int i = 1; i < rozmiar; i++)
+	{
+		for (int j = i; j > -1; j = poprzednicy[j]) {
+			stos[wskaznikStosu] = j;
+			wskaznikStosu++;
+		}
+
+		while (wskaznikStosu) {
+			wskaznikStosu--;
+			cout << vectorNazwMiast[stos[wskaznikStosu]] << " -> ";
+			plik << vectorNazwMiast[stos[wskaznikStosu]] << " -> ";
+
+		}
+
+		cout << ": " << kosztDojscia[i] << endl;
+		plik << ": " << kosztDojscia[i] << endl;
+	}
+	plik.close();
+	delete[] stos;
+}
+
+void wypiszTrasyRekurencyjnie(miasto* miastoGlowa, miasto* miastoWypisz, int iloscMiast, vector<string> vectorNazwMiast) {
+
+	if (miastoWypisz == nullptr) return;
+
+	wypiszTrasyRekurencyjnie(miastoGlowa, miastoWypisz->next, iloscMiast, vectorNazwMiast);
+
+	bool * droga = new bool [iloscMiast];
+	miasto* help = miastoGlowa;
+
+	for (int i = 0; i < iloscMiast; i++) {
+		droga[i] = false;
+	}
+
+	droga[miastoWypisz->numerMiasta] = true;
+
+	do {
+
+		while (help) {
+
+			if (help->numerMiasta == miastoWypisz->poprzednik) {
+
+				droga[help->numerMiasta] = true;
+				break;
+			}
+
+			help = help->next;
+		}
+
+		miastoWypisz = help;
+		help = miastoGlowa;
+
+	} while (miastoWypisz != miastoGlowa);
+
+	while(help){
+
+		if (droga[help->numerMiasta] == true) {
+
+			miastoWypisz = help;
+
+			if (help != miastoGlowa)
+				cout << " -> ";
+
+			cout << vectorNazwMiast[help->numerMiasta];
+		}
+
+		help = help->next;
+	}
+
+	cout << ": " <<  miastoWypisz->koszt << endl;
+}
+
+void usunListeMiast(miasto*& miastoGlowa) {
+
+	if (miastoGlowa) {
+		usunListeMiast(miastoGlowa->next);
+		delete miastoGlowa;
+	}
+}
+
+void usunTabliceDynamiczme(sasiad** &graf, int iloscMiast) {
+
+	sasiad* sasiad = nullptr, *doUsuniecia = nullptr;
+
+	for (int i = 0; i < iloscMiast; i++)
+	{
+		sasiad = graf[i];
+
+		while (sasiad)
+		{
+			doUsuniecia = sasiad;
+			sasiad = sasiad->next;
+			delete doUsuniecia;
+		}
+	}
+
+	delete[] graf;
 }

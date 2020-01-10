@@ -1,0 +1,10 @@
+Lodz Szczecin 3
+Lodz Bytom 3
+Lodz Katowice 6
+Szczecin Poznan 1
+Szczecin Warszawa 3
+Poznan Warszawa 3
+Poznan Katowice 1
+Warszawa Katowice 1
+Bytom Katowice 2
+Warszawa Konin 3

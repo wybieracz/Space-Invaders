@@ -1,0 +1,8 @@
+Wroclaw Poznan 170
+Poznan Gdansk 330
+Poznan Warszawa 300
+Gdansk Warszawa 320
+Krakow Warszawa 300
+Warszawa Bialystok 220
+Warszawa Lublin 100
+Lublin Bialystok 50
