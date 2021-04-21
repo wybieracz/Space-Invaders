@@ -1,1 +1,0 @@
-C:\Users\wybieracz\Documents\POLSL\PPK\20_Spedycja_Dijkstra\Debug\20_Spedycja_Dijkstra.exe -i dane1.txt -o trasy.txt -s Lodz
