@@ -1,2 +1,2 @@
-# Programming-Laboratory-POLSL
-Programming Laboratory : The Silesian University of Technology. Michał Pawłowski's solutions to lab tasks. 
+# Space-Invaders
+C++ and SFML implementation of Space Invaders, classic 2D game from 1978. 
