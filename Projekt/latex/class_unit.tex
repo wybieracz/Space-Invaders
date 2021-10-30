@@ -1,0 +1,118 @@
+\hypertarget{class_unit}{}\doxysection{Unit Class Reference}
+\label{class_unit}\index{Unit@{Unit}}
+
+
+{\ttfamily \#include $<$Unit.\+h$>$}
+
+Inheritance diagram for Unit\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_unit}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const sf\+::\+Vector2f \& \mbox{\hyperlink{class_unit_a95a12d380c03463f8df922f94471f1aa}{get\+Position}} () const
+\item 
+const sf\+::\+Float\+Rect \mbox{\hyperlink{class_unit_aeef215cfe1d29a1a08547285f7ab79a4}{get\+Bounds}} () const
+\item 
+virtual const bool \mbox{\hyperlink{class_unit_aa4638f4c23de11408808351343a11885}{is\+Attack\+Possible}} ()=0
+\item 
+void \mbox{\hyperlink{class_unit_a0f3a9adc7a47e85cbd4267ca83d87f5e}{render}} (sf\+::\+Render\+Target $\ast$target)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_unit_a05776844f17062ff78fd29e563e0cb57}{initialize\+Sprite}} (float x\+Scale, float y\+Scale)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Sprite \mbox{\hyperlink{class_unit_a0a5dd8df428f9918928a002b39999f76}{sprite}}
+\item 
+sf\+::\+Texture $\ast$ \mbox{\hyperlink{class_unit_a840d0d75dacd358d13b8b387e2a9c0f8}{texture}}
+\item 
+float \mbox{\hyperlink{class_unit_a0200ddbf14df4c1e748cf2591d30a937}{movement\+Speed}}
+\item 
+float \mbox{\hyperlink{class_unit_a6b7211eca1433778633638a530f6c5e7}{time\+To\+Attack}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Declaration of \mbox{\hyperlink{class_unit}{Unit}} virtual class \begin{DoxyAuthor}{Author}
+Michal Pawlowski 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2021-\/05-\/11 
+\end{DoxyDate}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_unit_aeef215cfe1d29a1a08547285f7ab79a4}\label{class_unit_aeef215cfe1d29a1a08547285f7ab79a4}} 
+\index{Unit@{Unit}!getBounds@{getBounds}}
+\index{getBounds@{getBounds}!Unit@{Unit}}
+\doxysubsubsection{\texorpdfstring{getBounds()}{getBounds()}}
+{\footnotesize\ttfamily const sf\+::\+Float\+Rect Unit\+::get\+Bounds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+give info about sprite coverage \mbox{\Hypertarget{class_unit_a95a12d380c03463f8df922f94471f1aa}\label{class_unit_a95a12d380c03463f8df922f94471f1aa}} 
+\index{Unit@{Unit}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!Unit@{Unit}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily const sf\+::\+Vector2f \& Unit\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+give information about unit position \mbox{\Hypertarget{class_unit_a05776844f17062ff78fd29e563e0cb57}\label{class_unit_a05776844f17062ff78fd29e563e0cb57}} 
+\index{Unit@{Unit}!initializeSprite@{initializeSprite}}
+\index{initializeSprite@{initializeSprite}!Unit@{Unit}}
+\doxysubsubsection{\texorpdfstring{initializeSprite()}{initializeSprite()}}
+{\footnotesize\ttfamily void Unit\+::initialize\+Sprite (\begin{DoxyParamCaption}\item[{float}]{x\+Scale,  }\item[{float}]{y\+Scale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+sprite initialization \mbox{\Hypertarget{class_unit_aa4638f4c23de11408808351343a11885}\label{class_unit_aa4638f4c23de11408808351343a11885}} 
+\index{Unit@{Unit}!isAttackPossible@{isAttackPossible}}
+\index{isAttackPossible@{isAttackPossible}!Unit@{Unit}}
+\doxysubsubsection{\texorpdfstring{isAttackPossible()}{isAttackPossible()}}
+{\footnotesize\ttfamily virtual const bool Unit\+::is\+Attack\+Possible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+inform is attack possible 
+
+Implemented in \mbox{\hyperlink{class_enemy_a29563b629c09a4d0627580111fa1d7f3}{Enemy}}, and \mbox{\hyperlink{class_player_a21f82f267117dce48eb5bfd1dde71908}{Player}}.
+
+\mbox{\Hypertarget{class_unit_a0f3a9adc7a47e85cbd4267ca83d87f5e}\label{class_unit_a0f3a9adc7a47e85cbd4267ca83d87f5e}} 
+\index{Unit@{Unit}!render@{render}}
+\index{render@{render}!Unit@{Unit}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Unit\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target $\ast$}]{target }\end{DoxyParamCaption})}
+
+renders object current state 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_unit_a0200ddbf14df4c1e748cf2591d30a937}\label{class_unit_a0200ddbf14df4c1e748cf2591d30a937}} 
+\index{Unit@{Unit}!movementSpeed@{movementSpeed}}
+\index{movementSpeed@{movementSpeed}!Unit@{Unit}}
+\doxysubsubsection{\texorpdfstring{movementSpeed}{movementSpeed}}
+{\footnotesize\ttfamily float Unit\+::movement\+Speed\hspace{0.3cm}{\ttfamily [protected]}}
+
+define movement speed \mbox{\Hypertarget{class_unit_a0a5dd8df428f9918928a002b39999f76}\label{class_unit_a0a5dd8df428f9918928a002b39999f76}} 
+\index{Unit@{Unit}!sprite@{sprite}}
+\index{sprite@{sprite}!Unit@{Unit}}
+\doxysubsubsection{\texorpdfstring{sprite}{sprite}}
+{\footnotesize\ttfamily sf\+::\+Sprite Unit\+::sprite\hspace{0.3cm}{\ttfamily [protected]}}
+
+representation of a texture \mbox{\Hypertarget{class_unit_a840d0d75dacd358d13b8b387e2a9c0f8}\label{class_unit_a840d0d75dacd358d13b8b387e2a9c0f8}} 
+\index{Unit@{Unit}!texture@{texture}}
+\index{texture@{texture}!Unit@{Unit}}
+\doxysubsubsection{\texorpdfstring{texture}{texture}}
+{\footnotesize\ttfamily sf\+::\+Texture$\ast$ Unit\+::texture\hspace{0.3cm}{\ttfamily [protected]}}
+
+texture object \mbox{\Hypertarget{class_unit_a6b7211eca1433778633638a530f6c5e7}\label{class_unit_a6b7211eca1433778633638a530f6c5e7}} 
+\index{Unit@{Unit}!timeToAttack@{timeToAttack}}
+\index{timeToAttack@{timeToAttack}!Unit@{Unit}}
+\doxysubsubsection{\texorpdfstring{timeToAttack}{timeToAttack}}
+{\footnotesize\ttfamily float Unit\+::time\+To\+Attack\hspace{0.3cm}{\ttfamily [protected]}}
+
+time to next attack 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Unit.\+h\item 
+Unit.\+cpp\end{DoxyCompactItemize}

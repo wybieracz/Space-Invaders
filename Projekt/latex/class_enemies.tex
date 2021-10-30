@@ -1,0 +1,86 @@
+\hypertarget{class_enemies}{}\doxysection{Enemies Class Reference}
+\label{class_enemies}\index{Enemies@{Enemies}}
+
+
+{\ttfamily \#include $<$Enemies.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_enemies_a4987fd88143455c202d825690cc09bba}{Enemies}} (sf\+::\+Texture $\ast$octopus1, sf\+::\+Texture $\ast$octopus2, sf\+::\+Texture $\ast$crab1, sf\+::\+Texture $\ast$crab2, sf\+::\+Texture $\ast$squid1, sf\+::\+Texture $\ast$squid2, sf\+::\+Texture $\ast$enemy\+Bullet)
+\item 
+\mbox{\hyperlink{class_enemies_ab07ac706046b1943bc95ed7408d2f9bf}{$\sim$\+Enemies}} ()
+\item 
+void \mbox{\hyperlink{class_enemies_aff9dc7e24b495c941bc00fdef30396c7}{update}} (int \&level, bool \&is\+Game\+Ended, \mbox{\hyperlink{class_player_bullets}{Player\+Bullets}} \&player\+Bullets, float delta\+Time)
+\item 
+void \mbox{\hyperlink{class_enemies_ae2546c708b16f272d729f92f4cd9493e}{render}} (sf\+::\+Render\+Window $\ast$window)
+\item 
+list$<$ list$<$ \mbox{\hyperlink{class_enemy}{Enemy}} $\ast$ $>$ $>$ \& \mbox{\hyperlink{class_enemies_aae7d7a4a900fe211592a60cf58abd9db}{get\+Enemy\+List}} ()
+\item 
+vector$<$ \mbox{\hyperlink{class_enemy_bullet}{Enemy\+Bullet}} $>$ \& \mbox{\hyperlink{class_enemies_af9ce4bd7c0096ca36652a77a2f4a1a3d}{get\+Bullets\+Vector}} ()
+\item 
+void \mbox{\hyperlink{class_enemies_a7e6735c7d5b7e618c1fed61c52dc2cde}{delete\+All\+Enemies\+And\+Bullets}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Declaration of Group class \begin{DoxyAuthor}{Author}
+Michal Pawlowski 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2021-\/05-\/11 
+\end{DoxyDate}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_enemies_a4987fd88143455c202d825690cc09bba}\label{class_enemies_a4987fd88143455c202d825690cc09bba}} 
+\index{Enemies@{Enemies}!Enemies@{Enemies}}
+\index{Enemies@{Enemies}!Enemies@{Enemies}}
+\doxysubsubsection{\texorpdfstring{Enemies()}{Enemies()}}
+{\footnotesize\ttfamily Enemies\+::\+Enemies (\begin{DoxyParamCaption}\item[{sf\+::\+Texture $\ast$}]{octopus1,  }\item[{sf\+::\+Texture $\ast$}]{octopus2,  }\item[{sf\+::\+Texture $\ast$}]{crab1,  }\item[{sf\+::\+Texture $\ast$}]{crab2,  }\item[{sf\+::\+Texture $\ast$}]{squid1,  }\item[{sf\+::\+Texture $\ast$}]{squid2,  }\item[{sf\+::\+Texture $\ast$}]{enemy\+Bullet }\end{DoxyParamCaption})}
+
+construcor \mbox{\Hypertarget{class_enemies_ab07ac706046b1943bc95ed7408d2f9bf}\label{class_enemies_ab07ac706046b1943bc95ed7408d2f9bf}} 
+\index{Enemies@{Enemies}!````~Enemies@{$\sim$Enemies}}
+\index{````~Enemies@{$\sim$Enemies}!Enemies@{Enemies}}
+\doxysubsubsection{\texorpdfstring{$\sim$Enemies()}{~Enemies()}}
+{\footnotesize\ttfamily Enemies\+::$\sim$\+Enemies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+destrucor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_enemies_a7e6735c7d5b7e618c1fed61c52dc2cde}\label{class_enemies_a7e6735c7d5b7e618c1fed61c52dc2cde}} 
+\index{Enemies@{Enemies}!deleteAllEnemiesAndBullets@{deleteAllEnemiesAndBullets}}
+\index{deleteAllEnemiesAndBullets@{deleteAllEnemiesAndBullets}!Enemies@{Enemies}}
+\doxysubsubsection{\texorpdfstring{deleteAllEnemiesAndBullets()}{deleteAllEnemiesAndBullets()}}
+{\footnotesize\ttfamily void Enemies\+::delete\+All\+Enemies\+And\+Bullets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+delete all enemies and their bullets \mbox{\Hypertarget{class_enemies_af9ce4bd7c0096ca36652a77a2f4a1a3d}\label{class_enemies_af9ce4bd7c0096ca36652a77a2f4a1a3d}} 
+\index{Enemies@{Enemies}!getBulletsVector@{getBulletsVector}}
+\index{getBulletsVector@{getBulletsVector}!Enemies@{Enemies}}
+\doxysubsubsection{\texorpdfstring{getBulletsVector()}{getBulletsVector()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_enemy_bullet}{Enemy\+Bullet}} $>$ \& Enemies\+::get\+Bullets\+Vector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+give access to bullets vector \mbox{\Hypertarget{class_enemies_aae7d7a4a900fe211592a60cf58abd9db}\label{class_enemies_aae7d7a4a900fe211592a60cf58abd9db}} 
+\index{Enemies@{Enemies}!getEnemyList@{getEnemyList}}
+\index{getEnemyList@{getEnemyList}!Enemies@{Enemies}}
+\doxysubsubsection{\texorpdfstring{getEnemyList()}{getEnemyList()}}
+{\footnotesize\ttfamily list$<$ list$<$ \mbox{\hyperlink{class_enemy}{Enemy}} $\ast$ $>$ $>$ \& Enemies\+::get\+Enemy\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+give access to list of enemies \mbox{\Hypertarget{class_enemies_ae2546c708b16f272d729f92f4cd9493e}\label{class_enemies_ae2546c708b16f272d729f92f4cd9493e}} 
+\index{Enemies@{Enemies}!render@{render}}
+\index{render@{render}!Enemies@{Enemies}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Enemies\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window $\ast$}]{window }\end{DoxyParamCaption})}
+
+draws all enemies from group \mbox{\Hypertarget{class_enemies_aff9dc7e24b495c941bc00fdef30396c7}\label{class_enemies_aff9dc7e24b495c941bc00fdef30396c7}} 
+\index{Enemies@{Enemies}!update@{update}}
+\index{update@{update}!Enemies@{Enemies}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Enemies\+::update (\begin{DoxyParamCaption}\item[{int \&}]{level,  }\item[{bool \&}]{is\+Game\+Ended,  }\item[{\mbox{\hyperlink{class_player_bullets}{Player\+Bullets}} \&}]{player\+Bullets,  }\item[{float}]{delta\+Time }\end{DoxyParamCaption})}
+
+update events 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Enemies.\+h\item 
+Enemies.\+cpp\end{DoxyCompactItemize}

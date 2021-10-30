@@ -1,0 +1,86 @@
+\hypertarget{class_block}{}\doxysection{Block Class Reference}
+\label{class_block}\index{Block@{Block}}
+
+
+{\ttfamily \#include $<$Block.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_block_afe64656901563cce1e5c3003a05df274}{Block}} (sf\+::\+Texture $\ast$texture, bool is\+Square\+Param, float x\+Pos, float y\+Pos, float rotation)
+\item 
+const sf\+::\+Float\+Rect \mbox{\hyperlink{class_block_a7f5a57a38567a78f19cef08bc1ddf362}{get\+Bounds}} () const
+\item 
+bool \mbox{\hyperlink{class_block_a08cbb52f61ceee6ac2b126cf174ac296}{get\+Is\+Square}} () const
+\item 
+float \mbox{\hyperlink{class_block_a55355171342fad15777bb80b0e50b8f9}{get\+Sprite\+Rotation}} () const
+\item 
+int \& \mbox{\hyperlink{class_block_a8235efd0b9a1407db8402689cb626688}{get\+Stage\+Access}} ()
+\item 
+void \mbox{\hyperlink{class_block_a9a93e5e1b7c8c9f0cc2388318adedb59}{set\+New\+Texture}} (sf\+::\+Texture $\ast$new\+Texture)
+\item 
+void \mbox{\hyperlink{class_block_ab31ba5a2e5689f857ce7a9a92b680b81}{render}} (sf\+::\+Render\+Window $\ast$window) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Declaration of \mbox{\hyperlink{class_walls}{Walls}} class \begin{DoxyAuthor}{Author}
+Michal Pawlowski 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2021-\/05-\/11 
+\end{DoxyDate}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_block_afe64656901563cce1e5c3003a05df274}\label{class_block_afe64656901563cce1e5c3003a05df274}} 
+\index{Block@{Block}!Block@{Block}}
+\index{Block@{Block}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{Block()}{Block()}}
+{\footnotesize\ttfamily Block\+::\+Block (\begin{DoxyParamCaption}\item[{sf\+::\+Texture $\ast$}]{texture,  }\item[{bool}]{is\+Square\+Param,  }\item[{float}]{x\+Pos,  }\item[{float}]{y\+Pos,  }\item[{float}]{rotation }\end{DoxyParamCaption})}
+
+constructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_block_a7f5a57a38567a78f19cef08bc1ddf362}\label{class_block_a7f5a57a38567a78f19cef08bc1ddf362}} 
+\index{Block@{Block}!getBounds@{getBounds}}
+\index{getBounds@{getBounds}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{getBounds()}{getBounds()}}
+{\footnotesize\ttfamily const sf\+::\+Float\+Rect Block\+::get\+Bounds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+give info about sprite coverage \mbox{\Hypertarget{class_block_a08cbb52f61ceee6ac2b126cf174ac296}\label{class_block_a08cbb52f61ceee6ac2b126cf174ac296}} 
+\index{Block@{Block}!getIsSquare@{getIsSquare}}
+\index{getIsSquare@{getIsSquare}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{getIsSquare()}{getIsSquare()}}
+{\footnotesize\ttfamily bool Block\+::get\+Is\+Square (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+give information about shape \mbox{\Hypertarget{class_block_a55355171342fad15777bb80b0e50b8f9}\label{class_block_a55355171342fad15777bb80b0e50b8f9}} 
+\index{Block@{Block}!getSpriteRotation@{getSpriteRotation}}
+\index{getSpriteRotation@{getSpriteRotation}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{getSpriteRotation()}{getSpriteRotation()}}
+{\footnotesize\ttfamily float Block\+::get\+Sprite\+Rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+give information about sprite rotation \mbox{\Hypertarget{class_block_a8235efd0b9a1407db8402689cb626688}\label{class_block_a8235efd0b9a1407db8402689cb626688}} 
+\index{Block@{Block}!getStageAccess@{getStageAccess}}
+\index{getStageAccess@{getStageAccess}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{getStageAccess()}{getStageAccess()}}
+{\footnotesize\ttfamily int \& Block\+::get\+Stage\+Access (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+give access to stage \mbox{\Hypertarget{class_block_ab31ba5a2e5689f857ce7a9a92b680b81}\label{class_block_ab31ba5a2e5689f857ce7a9a92b680b81}} 
+\index{Block@{Block}!render@{render}}
+\index{render@{render}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Block\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window $\ast$}]{window }\end{DoxyParamCaption}) const}
+
+draw whis object \mbox{\Hypertarget{class_block_a9a93e5e1b7c8c9f0cc2388318adedb59}\label{class_block_a9a93e5e1b7c8c9f0cc2388318adedb59}} 
+\index{Block@{Block}!setNewTexture@{setNewTexture}}
+\index{setNewTexture@{setNewTexture}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{setNewTexture()}{setNewTexture()}}
+{\footnotesize\ttfamily void Block\+::set\+New\+Texture (\begin{DoxyParamCaption}\item[{sf\+::\+Texture $\ast$}]{new\+Texture }\end{DoxyParamCaption})}
+
+set new texture 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Block.\+h\item 
+Block.\+cpp\end{DoxyCompactItemize}

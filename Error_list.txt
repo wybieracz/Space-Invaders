@@ -1,0 +1,5 @@
+Error list:
+[1] Unable to open game icon.
+[2] Unable to open texture.
+[3] Unable to open font file.
+[4] Unable to open sound file.
