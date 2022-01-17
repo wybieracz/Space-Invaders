@@ -19,6 +19,6 @@ Implementation of Space Invaders, classic 2D game from 1978.
 * Monitor with resolution 1920x1080
 * Keyboard
 ## Screenshots
-![start](Space-Invaders/Projekt/sprawozdanie/start.png)
-![interface](Space-Invaders/Projekt/sprawozdanie/interface.png)
-![end](Space-Invaders/Projekt/sprawozdanie/end.png)
+![start](/Projekt/sprawozdanie/start.png)
+![interface](/Projekt/sprawozdanie/interface.png)
+![end](/Projekt/sprawozdanie/end.png)
